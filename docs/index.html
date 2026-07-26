@@ -1,646 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VBS Magnified 2025</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Open+Sans:wght@400;600;700&display=swap');
-        
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: 'Open Sans', sans-serif;
-            background: linear-gradient(135deg, #7B2CBF, #FF6B35, #4ECDC4, #45B7D1);
-            background-size: 400% 400%;
-            animation: gradientShift 8s ease infinite;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        .flyer {
-            width: 8.5in;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            overflow: hidden;
-            position: relative;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #7B2CBF, #FF6B35);
-            color: white;
-            text-align: center;
-            padding: 15px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .logo {
-            width: 200px;
-            height: auto;
-            margin-bottom: 2px;
-            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
-            position: relative;
-            z-index: 1;
-        }
-        
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="8" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2"/><circle cx="50" cy="50" r="5" fill="rgba(255,255,255,0.1)"/><circle cx="20" cy="30" r="6" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/><circle cx="80" cy="20" r="4" fill="rgba(255,255,255,0.08)"/><circle cx="30" cy="80" r="3" fill="rgba(255,255,255,0.12)"/><circle cx="70" cy="70" r="7" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><g transform="translate(15,15)"><circle cx="0" cy="0" r="12" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="3"/><circle cx="0" cy="0" r="6" fill="rgba(255,255,255,0.04)"/></g></svg>') repeat;
-            animation: float 20s linear infinite;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            100% { transform: translateY(-100px); }
-        }
-        
-        .title {
-            font-family: 'Fredoka One', cursive;
-            font-size: 2.2em;
-            margin: 0;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-            position: relative;
-            z-index: 1;
-            line-height: 1.0;
-        }
-        
-        .title::after {
-            content: '🔍';
-            font-size: 0.6em;
-            position: absolute;
-            top: -10px;
-            right: -20px;
-            animation: magnify 3s ease-in-out infinite;
-        }
-        
-        @keyframes magnify {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.2) rotate(15deg); }
-        }
-        
-        .subtitle {
-            font-size: 1.2em;
-            margin: 5px 0;
-            font-weight: 600;
-            position: relative;
-            z-index: 1;
-            color: black;
-        }
-         .subtitle-2 {
-            font-size: 1em;
-            margin: 5px 0;
-            font-weight: 300;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .content {
-            flex: 1;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .info-section {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 15px;
-            padding: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-left: 5px solid #7B2CBF;
-        }
-        
-        .info-section h3 {
-            color: #7B2CBF;
-            margin: 0 0 15px 0;
-            font-size: 1.3em;
-            font-weight: 700;
-        }
-        
-        .date-time {
-            font-size: 1.1em;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-        
-        .location {
-            font-size: 1em;
-            color: #34495e;
-            line-height: 1.4;
-        }
-        
-        .schedule {
-            background: linear-gradient(135deg, #fff4e6, #ffe4cc);
-            border-radius: 15px;
-            padding: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-left: 5px solid #FF6B35;
-        }
-        
-        .schedule h3 {
-            color: #FF6B35;
-            margin: 0 0 15px 0;
-            font-size: 1.3em;
-            font-weight: 700;
-        }
-        
-        .schedule-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 15px;
-        }
-        
-        .schedule-column {
-            min-width: 0;
-        }
-        
-        .day {
-            margin-bottom: 15px;
-        }
-        
-        .day-title {
-            background: linear-gradient(135deg, #7B2CBF, #45b7d1);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: inline-block;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            font-size: 0.9em;
-        }
-        
-        .schedule-item {
-            display: flex;
-            align-items: center;
-            padding: 3px 0;
-            border-bottom: 1px solid #e9ecef;
-            font-size: 0.85em;
-        }
-        
-        .schedule-item:last-child {
-            border-bottom: none;
-        }
-        
-        .time {
-            font-weight: 600;
-            color: #2c3e50;
-            min-width: 60px;
-            margin-right: 10px;
-            font-size: 0.9em;
-        }
-        
-        .event {
-            color: #34495e;
-            flex: 1;
-        }
-        
-        .signup-section {
-            background: linear-gradient(135deg, #f0e6ff, #e6ccff);
-            border-radius: 15px;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-left: 5px solid #45b7d1;
-        }
-        
-        .signup-section h3 {
-            color: #45b7d1;
-            margin: 0 0 15px 0;
-            font-size: 1.3em;
-            font-weight: 700;
-        }
-        
-        .qr-code {
-            width: 100px;
-            height: 100px;
-            background: white;
-            border-radius: 10px;
-            margin: 10px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-        
-        .qr-placeholder {
-            font-size: 0.8em;
-            color: #666;
-            text-align: center;
-            line-height: 1.2;
-        }
-        
-        .footer {
-            background: linear-gradient(135deg, #7B2CBF, #4A1A5C);
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9em;
-        }
-        
-        .church-name {
-            font-weight: 700;
-            font-size: 1.1em;
-            margin-bottom: 5px;
-        }
-        
-        .theme-section {
-            background: linear-gradient(135deg, #e8f3ff, #f0f8ff);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-left: 5px solid #45b7d1;
-            text-align: center;
-        }
-        
-        .theme-section h3 {
-            color: #45b7d1;
-            margin: 0 0 15px 0;
-            font-size: 1.4em;
-            font-weight: 700;
-        }
-        
-        .theme-description {
-            font-size: 1.1em;
-            color: #2c3e50;
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-        
-        .theme-highlights {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 15px;
-        }
-        
-        .highlight-badge {
-            background: linear-gradient(135deg, #7B2CBF, #FF6B35);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 25px;
-            font-size: 0.9em;
-            font-weight: 600;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-        }
-        
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            
-            .flyer {
-                box-shadow: none;
-                width: 100%;
-                height: 100%;
-            }
-        }
-        
-        /* Mobile responsive styles */
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            
-            .flyer {
-                width: 100%;
-                max-width: 100%;
-                border-radius: 15px;
-            }
-            
-            .header {
-                padding: 20px 15px;
-            }
-            
-            .title {
-                font-size: 1.8em;
-            }
-            
-            .subtitle {
-                font-size: 1.1em;
-            }
-            
-            .content {
-                padding: 15px;
-                gap: 12px;
-            }
-            
-            .schedule-grid {
-                display: block;
-                gap: 0;
-            }
-            
-            .schedule-column {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-            
-            .schedule-column:last-child {
-                margin-bottom: 0;
-            }
-            
-            .day {
-                margin-bottom: 20px;
-                background: rgba(255,255,255,0.5);
-                border-radius: 12px;
-                padding: 15px;
-                border: 1px solid rgba(255,107,53,0.2);
-            }
-            
-            .day-title {
-                font-size: 1em;
-                margin-bottom: 12px;
-                display: block;
-                text-align: center;
-                padding: 8px 15px;
-            }
-            
-            .schedule-item {
-                padding: 8px 0;
-                font-size: 0.9em;
-                border-bottom: 1px solid rgba(233,236,239,0.6);
-            }
-            
-            .time {
-                min-width: 70px;
-                font-size: 0.85em;
-                color: #7B2CBF;
-                font-weight: 700;
-            }
-            
-            .event {
-                font-size: 0.9em;
-                line-height: 1.3;
-            }
-            
-            .info-section, .signup-section {
-                padding: 12px;
-            }
-            
-            .theme-section {
-                padding: 15px;
-            }
-            
-            .theme-highlights {
-                flex-direction: column;
-                align-items: center;
-                gap: 8px;
-            }
-            
-            .highlight-badge {
-                font-size: 0.85em;
-                padding: 6px 12px;
-            }
-            
-            .info-section h3, .signup-section h3, .schedule h3, .theme-section h3 {
-                font-size: 1.2em;
-            }
-        }
-        
-        /* Extra small phones */
-        @media (max-width: 480px) {
-            .title {
-                font-size: 1.6em;
-            }
-            
-            .subtitle {
-                font-size: 1em;
-            }
-            
-            .schedule-item {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 10px 0;
-            }
-            
-            .time {
-                margin-bottom: 3px;
-                margin-right: 0;
-                min-width: auto;
-                font-size: 0.8em;
-            }
-            
-            .event {
-                font-size: 0.85em;
-                margin-left: 0;
-            }
-            
-            .day-title {
-                font-size: 0.9em;
-                padding: 6px 12px;
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VBS 2026 · Illumination Station · Kansas Marthoma Church</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:ital,wght@0,400;0,700;0,900;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#06132B;
+    --deep:#0C2249;
+    --panel:#102B57;
+    --beam:#FFC53D;
+    --beam-soft:#FFE9A8;
+    --lamp:#FFF8E7;
+    --sea:#2E9CB0;
+    --coral:#E4572E;
+    --line:rgba(255,229,168,.22);
+    --display:'Luckiest Guy', 'Arial Black', sans-serif;
+    --body:'Nunito', 'Segoe UI', system-ui, sans-serif;
+    --mono:'DM Mono', ui-monospace, 'Courier New', monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--night);
+    color:var(--lamp);
+    font-family:var(--body);
+    line-height:1.55;
+  }
+  .sheet{max-width:880px;margin:0 auto;background:var(--deep);overflow:hidden}
+
+  /* ---------- beacon header ---------- */
+  .beacon{
+    position:relative;
+    padding:44px 28px 34px;
+    text-align:center;
+    background:
+      radial-gradient(circle at 50% 8%, rgba(255,197,61,.30), transparent 58%),
+      linear-gradient(180deg,#08183A 0%, #0C2249 100%);
+    isolation:isolate;
+    overflow:hidden;
+  }
+  .beacon::before{ /* the sweeping light */
+    content:"";
+    position:absolute; top:-40%; left:50%; width:150%; aspect-ratio:1;
+    transform:translateX(-50%);
+    background:conic-gradient(from 200deg, transparent 0deg, rgba(255,229,168,.16) 14deg, transparent 30deg, transparent 330deg, rgba(255,229,168,.10) 344deg, transparent 360deg);
+    z-index:-1;
+    animation:sweep 14s linear infinite;
+  }
+  @keyframes sweep{to{transform:translateX(-50%) rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){.beacon::before{animation:none}}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--beam-soft);margin:0 0 6px;
+  }
+  .year{
+    font-family:var(--display);font-size:clamp(.95rem,2.6vw,1.15rem);
+    letter-spacing:.22em;color:var(--sea);margin:0 0 10px;
+  }
+  h1{
+    font-family:var(--display);
+    font-size:clamp(2.3rem,9vw,4.9rem);
+    line-height:1.02;letter-spacing:.02em;margin:0;
+    color:var(--beam);
+    -webkit-text-stroke:2px #06132B;
+    paint-order:stroke fill;
+    text-shadow:
+      0 4px 0 #A9761A,
+      0 6px 0 #6E4A0E,
+      0 0 34px rgba(255,197,61,.55);
+  }
+  h1 span{
+    display:block;color:var(--lamp);
+    text-shadow:0 4px 0 #4E7C88, 0 6px 0 #2A4B55, 0 0 26px rgba(255,248,231,.45);
+  }
+  .tagline{
+    font-size:clamp(.95rem,3vw,1.2rem);font-weight:700;font-style:italic;
+    margin:14px auto 0;max-width:30ch;color:var(--beam-soft);
+  }
+  .verse{
+    margin:22px auto 0;max-width:46ch;padding:14px 18px;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    font-size:.94rem;
+  }
+  .verse cite{display:block;font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--sea);font-style:normal;margin-top:8px}
+
+  /* ---------- facts ---------- */
+  .facts{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:1px;background:var(--panel);border-top:1px solid var(--line);
+    box-shadow:0 0 0 1px var(--line) inset;
+  }
+  .fact{background:var(--panel);padding:20px 22px}
+  .fact h3{
+    font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--sea);margin:0 0 6px;font-weight:500;
+  }
+  .fact p{margin:0;font-weight:700;font-size:1.02rem}
+  .fact p a{color:var(--beam);text-decoration-thickness:2px;text-underline-offset:3px}
+  .fact p a:hover{color:var(--beam-soft)}
+  .fact p small{display:block;font-weight:400;font-size:.85rem;color:var(--beam-soft);opacity:.85}
+
+  /* ---------- sections ---------- */
+  section{padding:34px 28px}
+  .sec-head{
+    font-family:var(--display);font-size:1.05rem;letter-spacing:.12em;
+    color:var(--beam);margin:0 0 4px;
+  }
+  .sec-sub{margin:0 0 22px;font-size:.95rem;color:var(--beam-soft);opacity:.9}
+
+  .rotations{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0}
+  .rotations li{
+    flex:1 1 130px;text-align:center;padding:16px 10px;
+    border:1px solid var(--line);border-radius:14px;background:rgba(255,229,168,.05);
+  }
+  .rotations b{display:block;font-family:var(--display);font-size:.8rem;letter-spacing:.1em;margin-top:8px}
+  .rotations span{font-size:1.5rem;line-height:1}
+  .rotations em{display:block;font-size:.78rem;font-style:normal;color:var(--beam-soft);opacity:.8}
+
+  .spotlights{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .spot{
+    border:1px solid var(--line);border-left:4px solid var(--beam);
+    border-radius:0 14px 14px 0;padding:18px 18px 20px;background:var(--panel);
+  }
+  .spot h4{
+    font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--sea);margin:0 0 10px;font-weight:500;
+  }
+  .spot .q{margin:0 0 10px;font-weight:900;font-size:1.05rem;color:var(--beam-soft)}
+  .spot .a{margin:0;font-size:.92rem}
+
+  /* ---------- departure board ---------- */
+  .board{background:#040E22;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .day{border-top:1px solid var(--line)}
+  .day:first-child{border-top:0}
+  .day-head{
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;
+    padding:14px 18px;background:rgba(46,156,176,.14);
+  }
+  .day-head b{font-family:var(--display);font-size:.95rem;letter-spacing:.08em;color:var(--beam)}
+  .day-head span{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--beam-soft)}
+  .block{
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--sea);padding:12px 18px 4px;
+  }
+  .row{
+    display:grid;grid-template-columns:88px 1fr;gap:14px;
+    padding:7px 18px;align-items:baseline;
+  }
+  .row:nth-child(even){background:rgba(255,229,168,.035)}
+  .row time{font-family:var(--mono);font-size:.86rem;color:var(--beam);white-space:nowrap}
+  .row p{margin:0;font-size:.94rem}
+  .row.meal p{color:var(--beam-soft);font-weight:700}
+
+  /* ---------- register ---------- */
+  .register{
+    text-align:center;
+    background:
+      radial-gradient(circle at 50% 120%, rgba(255,197,61,.22), transparent 60%),
+      var(--panel);
+    border-top:1px solid var(--line);
+  }
+  .btn{
+    display:inline-block;margin:6px 0 14px;padding:15px 30px;
+    background:var(--beam);color:#3A2400;text-decoration:none;
+    font-family:var(--display);font-size:1rem;letter-spacing:.08em;
+    border-radius:999px;box-shadow:0 8px 0 #A9761A;
+  }
+  .btn:hover,.btn:focus-visible{transform:translateY(2px);box-shadow:0 6px 0 #A9761A}
+  a:focus-visible,.btn:focus-visible{outline:3px solid var(--sea);outline-offset:3px}
+  .link{word-break:break-all;font-family:var(--mono);font-size:.78rem;color:var(--beam-soft)}
+  .link a{color:var(--beam-soft)}
+  .qr{display:block;margin:10px auto 0;width:150px;height:150px;
+    border:6px solid var(--lamp);border-radius:12px;background:var(--lamp)}
+  .who{margin:16px auto 0;max-width:44ch;font-size:.9rem;color:var(--beam-soft)}
+
+  footer{
+    padding:22px 28px 30px;text-align:center;border-top:1px solid var(--line);
+    background:#040E22;
+  }
+  footer b{font-family:var(--display);font-size:.9rem;letter-spacing:.1em;color:var(--beam)}
+  footer p{margin:8px 0 0;font-size:.82rem;color:var(--beam-soft);opacity:.85}
+
+  @media (max-width:520px){
+    section{padding:28px 18px}
+    .beacon{padding:34px 18px 28px}
+    .row{grid-template-columns:76px 1fr;gap:10px;padding:6px 14px}
+    .fact{padding:16px 18px}
+  }
+  @media print{
+    @page{size:letter;margin:0}
+    body{background:#fff}
+    .sheet{max-width:none}
+    .beacon::before{display:none}
+  }
+</style>
 </head>
 <body>
-    <div class="flyer">
-        <div class="header">
-            <img src="Magnified-Logo.webp" alt="Magnified VBS Logo" class="logo">
-            <p class="subtitle">VBS 2025 - Kansas Marthoma Church</p>
-        </div>
-        
-        <div class="content">
-            <div class="theme-section">
-                <h3>🔬 What is Magnified VBS?</h3>
-                <div class="theme-description">
-                    Get ready to explore God's amazing world up close! At Magnified VBS, kids will discover how God made everything there is and see how much He loves each one of us. Through fun experiments, awesome crafts, and exciting games, we'll magnify God's greatness together!
-                </div>
-                <div class="theme-highlights">
-                    <div class="highlight-badge">🔍 Science & Discovery</div>
-                    <div class="highlight-badge">🎨 Creative Crafts</div>
-                    <div class="highlight-badge">🎵 Amazing Songs</div>
-                    <div class="highlight-badge">🏃 Fun Games</div>
-                    <div class="highlight-badge">📖 Bible Adventures</div>
-                </div>
-            </div>
-            
-            <div class="info-section">
-                <h3>📅 When</h3>
-                <div class="date-time">August 15-17, 2025</div>
-            </div>
-            
-            <div class="info-section">
-                <h3>📍 Where</h3>
-                <div class="location">
-                    <strong>St. Aidan's Episcopal Church</strong><br>
-                    14301 S. Black Bob Rd<br>
-                    Olathe, KS 66062
-                </div>
-            </div>
-            
-            <div class="schedule">
-                <h3>� Schedule</h3>
-                <div class="schedule-grid">
-                    <div class="schedule-column">
-                        <div class="day">
-                            <div class="day-title">Friday - August 15</div>
-                            <div class="schedule-item">
-                                <div class="time">5:00 PM</div>
-                                <div class="event">Registration</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">5:15 PM</div>
-                                <div class="event">Opening and Prayer</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">6:00 PM</div>
-                                <div class="event">Songs</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">6:30 PM</div>
-                                <div class="event">Lessons - Session 1</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">7:15 PM</div>
-                                <div class="event">Craft</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">7:45 PM</div>
-                                <div class="event">Memory Verse</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">7:55 PM</div>
-                                <div class="event">Songs</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">8:10 PM</div>
-                                <div class="event">Games</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">8:30 PM</div>
-                                <div class="event">Dinner</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="schedule-column">
-                        <div class="day">
-                            <div class="day-title">Saturday - August 16</div>
-                            <div class="schedule-item">
-                                <div class="time">9:00 AM</div>
-                                <div class="event">Opening and Prayer</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">9:30 AM</div>
-                                <div class="event">Songs</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">10:00 AM</div>
-                                <div class="event">Lessons - Session 2</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">10:30 AM</div>
-                                <div class="event">Craft</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">11:00 AM</div>
-                                <div class="event">Memory Verse</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">11:10 AM</div>
-                                <div class="event">Songs</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">11:30 AM</div>
-                                <div class="event">Games</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">12:15 PM</div>
-                                <div class="event">Lunch/Break</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">1:00 PM</div>
-                                <div class="event">Opening and Prayer</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">1:30 PM</div>
-                                <div class="event">Songs</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">2:00 PM</div>
-                                <div class="event">Lessons - Session 3</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">2:30 PM</div>
-                                <div class="event">Craft</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">3:00 PM</div>
-                                <div class="event">Memory Verse</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">3:10 PM</div>
-                                <div class="event">Songs</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">3:30 PM</div>
-                                <div class="event">Sunday Practice/Sunday School</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">4:00 PM</div>
-                                <div class="event">Games</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">4:30 PM</div>
-                                <div class="event">Snacks</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="schedule-column">
-                        <div class="day">
-                            <div class="day-title">Sunday - August 17</div>
-                            <div class="schedule-item">
-                                <div class="time">2:30 PM</div>
-                                <div class="event">VBS Kids Song</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">2:45 PM</div>
-                                <div class="event">Certificate Distribution</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="time">2:50 PM</div>
-                                <div class="event">Vote of Thanks</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="signup-section">
-                <h3>🔍 How to Sign Up</h3>
-                <p>Click the link here <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSe-gDLsL0a7X40n4tf_7scwNXNH30RmdaAeP6meHSOJ6FmzEw/viewform?usp=dialog">Sign Up Form</a></p>
-                <p>Or scan the QR code below to register!</p>
-                <div class="qr-code">
-                    <img src="qr-code-google-forms.png" style="height: 100%;" alt="QR Code">
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer">
-            <div class="church-name">Kansas Marthoma Church</div>
-            <div>Made to Magnify God! Join us for an amazing adventure in faith!</div>
-        </div>
+<main class="sheet">
+
+  <header class="beacon">
+    <p class="eyebrow">Kansas Marthoma Church presents</p>
+    <p class="year">Vacation Bible School 2026</p>
+    <h1>Illumination<span>Station</span></h1>
+    <p class="tagline">Shining a light on who Jesus really is</p>
+    <blockquote class="verse">
+      Jesus spoke to them again: “I am the light of the world. Anyone who follows me will never walk in the darkness but will have the light of life.”
+      <cite>John 8:12</cite>
+    </blockquote>
+  </header>
+
+  <div class="facts">
+    <div class="fact">
+      <h3>When</h3>
+      <p>August 14–16, 2026<small>Friday evening · Saturday all day · Sunday closing</small></p>
     </div>
+    <div class="fact">
+      <h3>Where</h3>
+      <p>St. Aidan's Episcopal Church<small>14301 S. Black Bob Rd, Olathe, KS 66062</small></p>
+    </div>
+    <div class="fact">
+      <h3>Who</h3>
+      <p>Kids age 4 through grade 12</p>
+    </div>
+    <div class="fact">
+      <h3>Register</h3>
+      <p><a href="https://docs.google.com/forms/d/1jAg9DF6CkfgSAbQpj2eTGeky7EijoXdlFUvC6M8HGjg/viewform">Open the sign-up form</a><small>One form per child</small></p>
+    </div>
+  </div>
+
+  <section>
+    <h2 class="sec-head">Five ways we'll explore the light</h2>
+    <p class="sec-sub">Every day moves through all five, so no one sits still for long.</p>
+    <ul class="rotations">
+      <li><span aria-hidden="true">📖</span><b>Learn</b><em>Bible sessions</em></li>
+      <li><span aria-hidden="true">🎵</span><b>Sing</b><em>Theme songs</em></li>
+      <li><span aria-hidden="true">🕯️</span><b>Grow</b><em>Memory verses</em></li>
+      <li><span aria-hidden="true">🎨</span><b>Create</b><em>Crafts</em></li>
+      <li><span aria-hidden="true">⚽</span><b>Play</b><em>Games &amp; snacks</em></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="sec-head">What the sessions cover</h2>
+    <p class="sec-sub">Three teaching sessions, one question at the centre of each.</p>
+    <div class="spotlights">
+      <article class="spot">
+        <h4>Session 1 · Friday</h4>
+        <p class="q">Who is Jesus?</p>
+        <p class="a">Jesus is God's promised Son — the Messiah people had waited for. From Matthew 16:13-20.</p>
+      </article>
+      <article class="spot">
+        <h4>Session 2 · Saturday AM</h4>
+        <p class="q">Was Jesus just an ordinary man?</p>
+        <p class="a">Jesus is God's perfect Son, who came to be the Saviour of the world. From the baptism of Jesus.</p>
+      </article>
+      <article class="spot">
+        <h4>Session 3 · Saturday PM</h4>
+        <p class="q">Was Jesus just a teacher?</p>
+        <p class="a">Everything Jesus said and did showed He is the powerful Son of God. From Matthew 15:29-39.</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec-head">Daily schedule</h2>
+    <p class="sec-sub">Please drop off and pick up on time so each session stays on track.</p>
+
+    <div class="board">
+      <div class="day">
+        <div class="day-head"><b>Day 1</b><span>Friday, August 14</span></div>
+        <div class="row"><time>5:00 pm</time><p>Registration</p></div>
+        <div class="row"><time>5:15 pm</time><p>Opening and prayer</p></div>
+        <div class="row"><time>6:00 pm</time><p>Songs</p></div>
+        <div class="row"><time>6:30 pm</time><p>Lesson — Session 1</p></div>
+        <div class="row"><time>7:15 pm</time><p>Craft</p></div>
+        <div class="row"><time>7:45 pm</time><p>Memory verse</p></div>
+        <div class="row"><time>7:55 pm</time><p>Songs</p></div>
+        <div class="row"><time>8:10 pm</time><p>Games</p></div>
+        <div class="row meal"><time>8:30 pm</time><p>Dinner</p></div>
+      </div>
+
+      <div class="day">
+        <div class="day-head"><b>Day 2</b><span>Saturday, August 15</span></div>
+        <p class="block">Morning</p>
+        <div class="row"><time>9:00 am</time><p>Opening and prayer</p></div>
+        <div class="row"><time>9:30 am</time><p>Songs</p></div>
+        <div class="row"><time>10:00 am</time><p>Lesson — Session 2</p></div>
+        <div class="row"><time>10:30 am</time><p>Craft</p></div>
+        <div class="row"><time>11:00 am</time><p>Memory verse</p></div>
+        <div class="row"><time>11:10 am</time><p>Songs</p></div>
+        <div class="row"><time>11:30 am</time><p>Games</p></div>
+        <div class="row meal"><time>12:15 pm</time><p>Lunch and break</p></div>
+        <p class="block">Afternoon</p>
+        <div class="row"><time>1:00 pm</time><p>Opening and prayer</p></div>
+        <div class="row"><time>1:30 pm</time><p>Songs</p></div>
+        <div class="row"><time>2:00 pm</time><p>Lesson — Session 3</p></div>
+        <div class="row"><time>2:30 pm</time><p>Craft</p></div>
+        <div class="row"><time>3:00 pm</time><p>Memory verse</p></div>
+        <div class="row"><time>3:10 pm</time><p>Songs</p></div>
+        <div class="row"><time>3:30 pm</time><p>Sunday practice and Sunday school</p></div>
+        <div class="row"><time>4:00 pm</time><p>Games</p></div>
+        <div class="row meal"><time>4:30 pm</time><p>Snacks</p></div>
+      </div>
+
+      <div class="day">
+        <div class="day-head"><b>Day 3</b><span>Sunday, August 16 · after church service</span></div>
+        <div class="row"><time>2:30 pm</time><p>VBS kids' song</p></div>
+        <div class="row"><time>2:45 pm</time><p>Certificate distribution</p></div>
+        <div class="row"><time>2:50 pm</time><p>Vote of thanks</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="register" id="signup">
+    <h2 class="sec-head">Sign up</h2>
+    <p class="sec-sub">One form per child, please.</p>
+    <a class="btn" href="https://docs.google.com/forms/d/1jAg9DF6CkfgSAbQpj2eTGeky7EijoXdlFUvC6M8HGjg/viewform">Register your child</a>
+    <p class="link">Or scan the code, or type in: <a href="https://docs.google.com/forms/d/1jAg9DF6CkfgSAbQpj2eTGeky7EijoXdlFUvC6M8HGjg/viewform">https://docs.google.com/forms/d/1jAg9DF6CkfgSAbQpj2eTGeky7EijoXdlFUvC6M8HGjg/viewform</a></p>
+    <img class="qr" src="data:image/png;base64,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" alt="QR code linking to the VBS 2026 registration form" width="160" height="160">
+  </section>
+
+  <footer>
+    <b>Let's shine His light together</b>
+    <p>Kansas Marthoma Church · VBS 2026</p>
+  </footer>
+
+</main>
 </body>
 </html>
